@@ -1,0 +1,79 @@
+:root {
+  /* Header & Navigation Heights */
+  --navbar-height: 94px;
+  --navbar-height-scrolled: 72px;
+  --navbar-height-mobile: 68px;
+
+  /* Light Mode Palette */
+  --primary-color: #0f2d59;      /* Midnight Classic Navy */
+  --primary-hover: #1e3a60;      /* Slightly lighter navy */
+  --primary-light: #f7f3eb;      /* Soft Cream Tint */
+  --secondary-color: #f7f3eb;    /* Warm Cream */
+  --accent-gold: #c5a059;        /* Champagne Gold */
+  --accent-gold-hover: #b38d45;  /* Deep Matte Gold */
+  --bg-color: #faf8f5;           /* Luxury Alabaster Cream */
+  --text-dark: #0f172a;          /* Slate 900 */
+  --text-muted: #576574;         /* Soft Gray-Slate */
+  --border-color: #e5dec9;       /* Soft Cream-Clay Border */
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 20px -2px rgba(15, 45, 89, 0.04), 0 2px 10px -1px rgba(0, 0, 0, 0.02);
+  --hover-glow: 0 0 15px rgba(197, 160, 89, 0.25);
+  --header-bg: rgba(250, 248, 245, 0.85);
+
+  /* Typography */
+  --font-primary: 'Poppins', 'Inter', system-ui, sans-serif;
+  --font-heading: 'Manrope', 'Inter', system-ui, sans-serif;
+
+  /* Font Sizes */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --fs-4xl: 2.25rem;
+  --fs-5xl: 3rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  --spacing-huge: 5rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Containers */
+  --max-width: 1200px;
+}
+
+[data-theme="dark"] {
+  /* Dark Mode Palette */
+  --primary-color: #c5a059;      /* Champagne Gold highlights */
+  --primary-hover: #d5b069;      /* Lighter gold hover */
+  --primary-light: #202024;      /* Lighter charcoal for overlays */
+  --secondary-color: #111114;    /* Darker charcoal matching sub-footer */
+  --accent-gold: #c5a059;        /* Gold */
+  --accent-gold-hover: #d5b069;  /* Lighter Gold */
+  --bg-color: #18181b;           /* Charcoal Gray background matching footer */
+  --text-dark: #f9fafb;          /* Light Text */
+  --text-muted: #a1a1aa;         /* Soft Zinc Gray */
+  --border-color: #27272a;       /* Zinc 800 border */
+  --card-bg: #202024;            /* Charcoal Card background */
+  --card-shadow: 0 4px 20px -2px rgba(197, 160, 89, 0.1), 0 2px 10px -1px rgba(0, 0, 0, 0.4);
+  --hover-glow: 0 0 20px rgba(197, 160, 89, 0.25);
+  --header-bg: rgba(24, 24, 27, 0.85); /* Semi-transparent charcoal header */
+}

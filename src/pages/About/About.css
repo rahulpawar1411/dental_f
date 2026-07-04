@@ -1,0 +1,410 @@
+.page-header {
+  background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
+  color: #ffffff;
+  padding: var(--spacing-xxl) 0;
+  text-align: center;
+  border-bottom: 2px solid var(--accent-gold);
+}
+
+[data-theme="dark"] .page-header {
+  background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+  border-bottom-color: var(--accent-gold);
+}
+
+.page-header h1 {
+  font-size: var(--fs-4xl);
+  color: #ffffff;
+  margin-bottom: var(--spacing-xs);
+}
+
+.page-header p {
+  color: #cffafe;
+  font-size: var(--fs-md);
+  font-weight: 500;
+}
+
+.bio-section {
+  background-color: var(--secondary-color);
+}
+
+.bio-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctor-frame {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: radial-gradient(circle, #202024 0%, #18181b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctor-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.doctor-frame:hover .doctor-profile-img {
+  transform: scale(1.04);
+}
+
+.credentials-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-lg);
+  background: linear-gradient(to top, rgba(24, 24, 27, 0.95), rgba(24, 24, 27, 0.4) 70%, transparent);
+  color: #ffffff;
+  text-align: center;
+}
+
+.credentials-overlay h3 {
+  color: #ffffff;
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.credentials-overlay p {
+  font-size: var(--fs-xs);
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+.bio-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bio-content h2 {
+  font-size: var(--fs-3xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.bio-paragraph {
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.7;
+}
+
+.accreditations {
+  margin-top: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.acc-item {
+  position: relative;
+  padding-left: var(--spacing-lg);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  color: var(--text-dark);
+}
+
+.acc-item::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--accent-gold);
+}
+
+.mission-vision-section {
+  background-color: var(--bg-color);
+}
+
+.mv-card {
+  background-color: var(--card-bg);
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.mv-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+}
+
+.mission-card::before {
+  background-color: var(--accent-gold);
+}
+
+.vision-card::before {
+  background-color: var(--primary-color);
+}
+
+.mv-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.mission-card .mv-icon-wrapper {
+  background-color: rgba(212, 175, 55, 0.1);
+  color: var(--accent-gold);
+}
+
+.mv-card h2 {
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+}
+
+.mv-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+:root {
+  --pillar-card-width: 310px;
+  --pillar-card-gap: 32px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --pillar-card-width: 250px;
+    --pillar-card-gap: 16px;
+  }
+}
+
+.highlights-section {
+  background-color: var(--secondary-color);
+}
+
+.pillar-slider-outer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+.pillar-slider-container {
+  width: 100%;
+  max-width: calc(3 * var(--pillar-card-width) + 2 * var(--pillar-card-gap));
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 20px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.pillar-slider-track {
+  display: flex;
+  gap: var(--pillar-card-gap);
+  position: relative;
+  left: 50%;
+  transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+  width: max-content;
+}
+
+.pillar-card-wrapper {
+  flex: 0 0 var(--pillar-card-width);
+  transition: filter 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+  box-sizing: border-box;
+}
+
+.pillar-card-wrapper.blurred {
+  filter: blur(4px);
+  opacity: 0.35;
+  transform: scale(0.88);
+  pointer-events: none;
+}
+
+.pillar-card-wrapper.active {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.pillar-slider-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+  .pillar-slider-outer .slider-control {
+    display: none;
+  }
+  .pillar-slider-outer {
+    gap: 0;
+  }
+}
+
+.highlight-card {
+  background-color: var(--card-bg);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  height: 100%;
+}
+
+.highlight-card:hover {
+  border-color: var(--accent-gold);
+}
+
+.hl-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+}
+
+.highlight-card:hover .hl-icon-box {
+  background-color: var(--accent-gold);
+  color: #ffffff;
+}
+
+.highlight-card h3 {
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+
+.highlight-card p {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+
+.philosophy-deep-section {
+  background: linear-gradient(135deg, rgba(14, 116, 144, 0.02) 0%, rgba(212, 175, 55, 0.02) 100%);
+  border-top: 1px solid var(--border-color);
+}
+
+.philosophy-box {
+  max-width: 850px;
+  margin: 0 auto;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .philosophy-box {
+    padding: var(--spacing-xxl);
+  }
+}
+
+.philosophy-content h2 {
+  font-size: var(--fs-3xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.philosophy-content p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-xl);
+}
+
+.philosophy-ctas {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+@media (max-width: 992px) {
+  .mv-card {
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+
+  .philosophy-box {
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .doctor-frame {
+    max-width: 260px;
+  }
+
+  .mv-card {
+    padding: var(--spacing-lg) var(--spacing-md);
+    gap: var(--spacing-sm);
+    border-radius: var(--radius-md);
+  }
+
+  .mv-icon-wrapper {
+    width: 44px;
+    height: 44px;
+  }
+
+  .mv-icon-wrapper svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .mv-card h2 {
+    font-size: var(--fs-xl);
+  }
+
+  .mv-card p {
+    font-size: var(--fs-sm);
+    line-height: 1.5;
+  }
+
+  /* Philosophy Section Mobile Adjustments */
+  .philosophy-box {
+    padding: var(--spacing-lg) var(--spacing-md);
+    border-radius: var(--radius-md);
+  }
+
+  .philosophy-content h2 {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .philosophy-content p {
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .philosophy-ctas {
+    gap: var(--spacing-sm);
+  }
+}

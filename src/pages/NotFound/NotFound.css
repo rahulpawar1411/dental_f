@@ -1,0 +1,59 @@
+.notfound-page {
+  min-height: 80vh;
+  background-color: var(--bg-color);
+}
+
+.notfound-box {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  text-align: center;
+  max-width: 500px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.notfound-icon-wrapper {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.tooth-missing-svg {
+  width: 100%;
+  height: auto;
+}
+
+.notfound-code {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.notfound-box h1 {
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+}
+
+.notfound-desc {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+}
+
+.notfound-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
