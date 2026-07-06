@@ -47,17 +47,6 @@ export const Navbar = () => {
     setIsOpen(false);
   }, [location]);
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
-
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
