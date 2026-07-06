@@ -10,6 +10,7 @@ import { FAQ } from './pages/FAQ/FAQ';
 import { Contact } from './pages/Contact/Contact';
 import { BookAppointment } from './pages/BookAppointment/BookAppointment';
 import { NotFound } from './pages/NotFound/NotFound';
+import { AdminDashboard } from './pages/Admin/AdminDashboard';
 
 import './styles/variables.css';
 import './styles/global.css';
@@ -29,6 +30,7 @@ function App() {
             <Route path="book" element={<BookAppointment />} />
             <Route path="*" element={<NotFound />} />
           </Route>
+          <Route path="admin" element={<AdminDashboard />} />
         </Routes>
       </Router>
     </ThemeProvider>

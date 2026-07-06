@@ -1,0 +1,170 @@
+.admin-gate-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f5f5f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 16px;
+  box-sizing: border-box;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.admin-gate-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 32px 24px;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12);
+  text-align: center;
+  box-sizing: border-box;
+  animation: gateCardFade 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes gateCardFade {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.lock-icon-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(25, 118, 210, 0.08);
+  color: #1976d2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+}
+
+.admin-gate-header h2 {
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0 0 8px 0;
+  font-family: inherit;
+}
+
+.admin-gate-header p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.43;
+  margin: 0 0 24px 0;
+}
+
+/* MUI Outlined TextField style */
+.pin-input-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.pin-input-wrapper input {
+  width: 100%;
+  padding: 16.5px 45px 16.5px 14px;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.87);
+  letter-spacing: 12px;
+  text-align: center;
+  outline: none;
+  transition: border-color 200ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.pin-input-wrapper input:focus {
+  border-color: #1976d2;
+  border-width: 2px;
+  padding: 15.5px 44px 15.5px 13px; /* Adjust padding to offset border-width without resizing layout */
+}
+
+.pin-input-wrapper input::placeholder {
+  color: rgba(0, 0, 0, 0.38);
+  letter-spacing: 6px;
+}
+
+.toggle-pin-visibility {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.54);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle-pin-visibility:hover {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+/* Errors & Actions */
+.admin-gate-error {
+  font-size: 13px;
+  color: #d32f2f;
+  background-color: rgba(211, 47, 47, 0.05);
+  border: 1px solid rgba(211, 47, 47, 0.2);
+  border-radius: 4px;
+  padding: 6px 16px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* Contained Button style */
+.admin-gate-btn {
+  width: 100%;
+  padding: 8px 22px;
+  background-color: #1976d2;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02857em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 42px;
+}
+
+.admin-gate-btn:hover:not(:disabled) {
+  background-color: #1565c0;
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+.admin-gate-btn:disabled {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.admin-gate-footer {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.38);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
