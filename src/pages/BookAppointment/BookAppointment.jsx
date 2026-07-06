@@ -290,7 +290,7 @@ export const BookAppointment = () => {
                   <h2>Select Appointment Date & Time</h2>
                   <p className="step-desc">Pick a date and select one of our available dental care slots.</p>
 
-                  <div className="form-grid grid-cols-2">
+                  <div className="form-grid">
                     <div className="form-group">
                       <label className="form-label" htmlFor="booking-date">Appointment Date</label>
                       <div className="input-with-icon">

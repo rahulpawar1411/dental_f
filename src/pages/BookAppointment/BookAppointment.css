@@ -166,6 +166,10 @@
   color: #ffffff;
 }
 
+[data-theme="dark"] input[type="date"] {
+  color-scheme: dark;
+}
+
 .time-slots-wrapper {
   margin-top: var(--spacing-xl);
   border-top: 1px solid var(--border-color);
@@ -440,7 +444,7 @@
 }
 
 /* Enhanced Form Responsiveness Override */
-@media (min-width: 480px) {
+@media (min-width: 640px) {
   .booking-box .form-grid.grid-cols-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -449,7 +453,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .booking-box .form-grid.grid-cols-2 {
     display: flex;
     flex-direction: column;
