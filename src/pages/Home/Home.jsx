@@ -25,13 +25,53 @@ const iconMap = {
   AlertTriangle
 };
 
+const whyChooseUsData = [
+  {
+    title: "Experienced Dentist",
+    description: "Dr. Kriti Ghagre brings over 12 years of specialized expertise in aesthetic and general dentistry.",
+    icon: <Award className="why-icon" size={24} />
+  },
+  {
+    title: "Latest Equipment",
+    description: "We use state-of-the-art intraoral scanners, 3D CT digital imaging, and painless laser technology.",
+    icon: <CheckCircle className="why-icon" size={24} />
+  },
+  {
+    title: "Pain-Free Treatment",
+    description: "Our advanced micro-dentistry techniques and mild anesthetics ensure a comfortable, stress-free visit.",
+    icon: <Heart className="why-icon" size={24} />
+  },
+  {
+    title: "Sterilized Instruments",
+    description: "We enforce strict, medical-grade autoclave sterilization and clean-room clinical protocols.",
+    icon: <ShieldCheck className="why-icon" size={24} />
+  },
+  {
+    title: "Emergency Care",
+    description: "Immediate relief slots reserved daily for severe toothaches, accidents, and broken restorations.",
+    icon: <Clock className="why-icon" size={24} />
+  },
+  {
+    title: "Comfortable Environment",
+    description: "Relax in our luxurious, calming lounge featuring soft ambient soundscapes and warm beverages.",
+    icon: <Smile className="why-icon" size={24} />
+  }
+];
+
+const extendedChooseUsData = [
+  ...whyChooseUsData.slice(-3),
+  ...whyChooseUsData,
+  ...whyChooseUsData.slice(0, 3)
+];
+
 export const Home = () => {
   const featuredServices = ServiceController.filterServices().slice(0, 4);
   const featuredFaqs = faqData.slice(0, 4);
 
   const [openFaq, setOpenFaq] = useState(null);
-  const [currentChooseIndex, setCurrentChooseIndex] = useState(0);
+  const [currentChooseIndex, setCurrentChooseIndex] = useState(3); // Start at index 3 (first real item)
   const [visibleChooseCards, setVisibleChooseCards] = useState(3);
+  const [isTransitionActive, setIsTransitionActive] = useState(true);
 
   React.useEffect(() => {
     const handleChooseResize = () => {
@@ -49,55 +89,65 @@ export const Home = () => {
   }, []);
 
   const nextChooseSlide = () => {
-    setCurrentChooseIndex((prev) => {
-      const maxIndex = whyChooseUsData.length - visibleChooseCards;
-      return prev >= maxIndex ? 0 : prev + 1;
-    });
+    if (!isTransitionActive) return;
+    setCurrentChooseIndex((prev) => prev + 1);
   };
 
   const prevChooseSlide = () => {
-    setCurrentChooseIndex((prev) => {
-      const maxIndex = whyChooseUsData.length - visibleChooseCards;
-      return prev <= 0 ? maxIndex : prev - 1;
-    });
+    if (!isTransitionActive) return;
+    setCurrentChooseIndex((prev) => prev - 1);
+  };
+
+  const handleTransitionEnd = () => {
+    // boundary check: 3 is start of real items, 9 is end (index 3 + 6)
+    if (currentChooseIndex >= 3 + whyChooseUsData.length) {
+      setIsTransitionActive(false);
+      setCurrentChooseIndex(3);
+    } else if (currentChooseIndex <= 2) {
+      setIsTransitionActive(false);
+      setCurrentChooseIndex(3 + whyChooseUsData.length - 1); // index 8
+    }
+  };
+
+  React.useEffect(() => {
+    if (!isTransitionActive) {
+      const timer = setTimeout(() => {
+        setIsTransitionActive(true);
+      }, 20);
+      return () => clearTimeout(timer);
+    }
+  }, [isTransitionActive]);
+
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextChooseSlide();
+    } else if (isRightSwipe) {
+      prevChooseSlide();
+    }
   };
 
   const toggleFaq = (id) => {
     setOpenFaq(openFaq === id ? null : id);
   };
-
-  const whyChooseUsData = [
-    {
-      title: "Experienced Dentist",
-      description: "Dr. Kriti Ghagre brings over 12 years of specialized expertise in aesthetic and general dentistry.",
-      icon: <Award className="why-icon" size={24} />
-    },
-    {
-      title: "Latest Equipment",
-      description: "We use state-of-the-art intraoral scanners, 3D CT digital imaging, and painless laser technology.",
-      icon: <CheckCircle className="why-icon" size={24} />
-    },
-    {
-      title: "Pain-Free Treatment",
-      description: "Our advanced micro-dentistry techniques and mild anesthetics ensure a comfortable, stress-free visit.",
-      icon: <Heart className="why-icon" size={24} />
-    },
-    {
-      title: "Sterilized Instruments",
-      description: "We enforce strict, medical-grade autoclave sterilization and clean-room clinical protocols.",
-      icon: <ShieldCheck className="why-icon" size={24} />
-    },
-    {
-      title: "Emergency Care",
-      description: "Immediate relief slots reserved daily for severe toothaches, accidents, and broken restorations.",
-      icon: <Clock className="why-icon" size={24} />
-    },
-    {
-      title: "Comfortable Environment",
-      description: "Relax in our luxurious, calming lounge featuring soft ambient soundscapes and warm beverages.",
-      icon: <Smile className="why-icon" size={24} />
-    }
-  ];
 
   return (
     <div className="home-page animate-fade-in">
@@ -213,14 +263,20 @@ export const Home = () => {
               <ChevronLeft size={20} />
             </button>
             
-            <div className="why-slider-container">
+            <div 
+              className="why-slider-container"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               <div 
-                className="why-slider-track"
+                className={`why-slider-track ${isTransitionActive ? '' : 'no-transition'}`}
                 style={{ 
                   transform: `translateX(-${currentChooseIndex * (100 / visibleChooseCards)}%)`
                 }}
+                onTransitionEnd={handleTransitionEnd}
               >
-                {whyChooseUsData.map((item, index) => (
+                {extendedChooseUsData.map((item, index) => (
                   <div 
                     className="why-card-wrapper" 
                     key={index}
@@ -244,11 +300,14 @@ export const Home = () => {
           </div>
 
           <div className="why-slider-dots">
-            {Array.from({ length: Math.max(1, whyChooseUsData.length - visibleChooseCards + 1) }).map((_, i) => (
+            {whyChooseUsData.map((_, i) => (
               <button
                 key={i}
-                className={`slider-dot ${currentChooseIndex === i ? 'active' : ''}`}
-                onClick={() => setCurrentChooseIndex(i)}
+                className={`slider-dot ${((currentChooseIndex - 3) % 6 + 6) % 6 === i ? 'active' : ''}`}
+                onClick={() => {
+                  setIsTransitionActive(true);
+                  setCurrentChooseIndex(3 + i);
+                }}
                 aria-label={`Go to slide ${i + 1}`}
               />
             ))}
@@ -439,7 +498,7 @@ export const Home = () => {
                 Open in Google Maps
               </a>
               <p className="review-invite-line" style={{ marginTop: '12px', fontSize: '13px', textAlign: 'center', color: 'var(--text-muted)' }}>
-                Loved our clinical care? <a href="https://maps.app.goo.gl/v8p2e8jUBKuQ8sxx8?g_st=aw" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', fontWeight: '600', textDecoration: 'underline' }}>Write a review on Google</a>!
+                Loved our clinical care? <a href="https://search.google.com/local/writereview?placeid=ChIJha0lqBa55zsRHhGcg0GtP2k" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', fontWeight: '600', textDecoration: 'underline' }}>Write a review on Google</a>!
               </p>
             </div>
 

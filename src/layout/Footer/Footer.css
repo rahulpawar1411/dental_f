@@ -252,6 +252,14 @@
 
 @media (max-width: 768px) {
   .footer-bottom {
-    padding-bottom: 2rem;
+    padding: var(--spacing-sm) 0;
+    margin-top: var(--spacing-md);
+  }
+  .footer-bottom-container {
+    gap: var(--spacing-sm);
+  }
+  .quick-links-col,
+  .featured-treatments-col {
+    display: none;
   }
 }

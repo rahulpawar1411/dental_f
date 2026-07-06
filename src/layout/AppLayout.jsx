@@ -4,6 +4,7 @@ import { Phone, MessageCircle, ArrowUp } from 'lucide-react';
 import { Navbar } from './Navbar/Navbar';
 import { Footer } from './Footer/Footer';
 
+
 export const AppLayout = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);

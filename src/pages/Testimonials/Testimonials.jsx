@@ -34,7 +34,7 @@ export const Testimonials = () => {
               </div>
 
               <a 
-                href="https://maps.app.goo.gl/v8p2e8jUBKuQ8sxx8?g_st=aw" 
+                href="https://search.google.com/local/writereview?placeid=ChIJha0lqBa55zsRHhGcg0GtP2k" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-primary direct-google-btn"

@@ -47,7 +47,7 @@ export const Footer = () => {
         </div>
 
         {/* Quick Links Column */}
-        <div className="footer-col">
+        <div className="footer-col quick-links-col">
           <h3 className="footer-title">Quick Links</h3>
           <ul className="footer-links">
             <li><Link to="/" onClick={scrollToTop}>Home</Link></li>
@@ -59,7 +59,7 @@ export const Footer = () => {
         </div>
 
         {/* Featured Services Column */}
-        <div className="footer-col">
+        <div className="footer-col featured-treatments-col">
           <h3 className="footer-title">Featured Treatments</h3>
           <ul className="footer-links">
             <li><Link to="/services/smile-designing" onClick={scrollToTop}>Smile Designing</Link></li>
@@ -108,10 +108,6 @@ export const Footer = () => {
             <span className="divider">|</span>
             <a href="#terms" className="bottom-link">Terms of Service</a>
           </div>
-          <button className="back-to-top" onClick={scrollToTop} aria-label="Scroll back to top">
-            <ArrowUp size={16} />
-            <span>Top</span>
-          </button>
         </div>
       </div>
     </footer>

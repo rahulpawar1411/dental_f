@@ -112,11 +112,12 @@ export const Navbar = () => {
 
       <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
         <div className="mobile-menu-links">
-          {navLinks.map((link) => (
+          {navLinks.map((link, index) => (
             <Link
               key={link.name}
               to={link.path}
               className={`mobile-nav-link ${isActive(link.path) ? 'active' : ''}`}
+              style={{ transitionDelay: isOpen ? `${index * 60}ms` : '0ms' }}
             >
               {link.name}
             </Link>

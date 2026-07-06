@@ -3,7 +3,7 @@ export const faqData = [
     id: 1,
     category: "General",
     question: "How do I book an appointment?",
-    answer: "You can book an appointment easily by clicking on the 'Book Appointment' button in the navbar or on our Booking page. Simply fill in your details, preferred treatment, date, and time, and our clinic assistant will contact you within 2 hours to confirm your slot."
+    answer: "You can book an appointment easily by visiting our Booking page. Simply fill in your details, preferred treatment, date, and time, and our clinic assistant will contact you within 2 hours to confirm your slot."
   },
   {
     id: 2,
